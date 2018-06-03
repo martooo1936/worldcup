@@ -1,0 +1,25 @@
+extend sharedprops/_master
+
+
+block body
+    h1
+        | Add a Team
+    form(method='POST', action='/teams/add')
+        .form-group
+            label Team:
+            input.form-control(name='title', type='text' placeholder='enter a team name')
+            small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+        .form-group
+            label Coach:
+            input.form-control(name='coach', type='text' placeholder='enter the coach name')
+        .form-group
+            .dropdown-menu(name='continent', aria-labelledby='dropdownMenuLink')
+                a.dropdown-item(href='#') Europe
+                a.dropdown-item(href='#') Africa
+                a.dropdown-item(href='#') South America
+                a.dropdown-item(href='#') North America
+                a.dropdown-item(href='#') Asia
+                a.dropdown-item(href='#') Australlia
+
+        
+        button.btn.btn-primary(type='submit') Save Team

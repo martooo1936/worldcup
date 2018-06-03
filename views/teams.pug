@@ -2,11 +2,13 @@ extend sharedprops/_master
 
 block styles
     style.
-        h1{text-align: center;}
+        h1{text-align: center;
+            padding-top:50px;}
         p{color: white;}
         li{font-size:20px}
 
         .teams{
+            padding-top:50px;
             padding-right:150px;
             padding-left:150px;
         }
@@ -20,23 +22,19 @@ block body
     h1
         | Qualified Teams
     .teams
+       table.table
        
-            br
-            br
+            thead
+                tr
+                    th(scope='col') #
+                    th(scope='col') Team
+                    th(scope='col') Coach
+                    th(scope='col') Continent
+            tbody
             for team, i in teams
-                //li= team.title
-                //a(href="/teams/"+team._id) = team.title
-                table.table
-                    thead
-                    tr
-                        th(scope='col') #
-                        th(scope='col') Team
-                        th(scope='col') Coach
-                        th(scope='col') Continent
-                    tbody
-                        tr
-                            th(scope='row') 
-                            td= team.title
-                            td= team.coach
-                            td= team.continent
+                tr
+                    th(scope='row') 
+                    td= team.title
+                    td= team.coach
+                    td= team.continent
                         

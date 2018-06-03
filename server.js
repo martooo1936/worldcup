@@ -65,6 +65,10 @@ app.get('/teams', (req, res)=>{
     })
 });
 
+app.get('/teams/add', (req,res)=>{
+    res.render('addteam');
+});
+
 app.get('/argI', (req, res)=>{
     res.render('news/argI');
 });
