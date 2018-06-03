@@ -28,6 +28,10 @@ db.once('open', function(){
     console.log('connected to the db')
 });
 
+// get the team model
+let Team = require('./models/team');
+
+
 //config middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -46,7 +50,19 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/teams', (req, res)=>{
-    res.render('teams');
+    Team.find({}, function(err, teams){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render('teams',{
+                title: "Gaaaa",
+                teams: teams,
+            }
+        );
+            
+        }
+    })
 });
 
 app.get('/argI', (req, res)=>{
