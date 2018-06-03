@@ -69,6 +69,27 @@ app.get('/teams/add', (req,res)=>{
     res.render('addteam');
 });
 
+// adding the post form the team form
+
+app.post('/teams/add', (req,res)=>{
+    let team = new Team();
+    // fetch from the client body and save it to the db
+    team.title = req.body.title;
+    team.coach = req.body.coach;
+    team.continent = req.body.continent;
+
+    // save the fetched data to the db
+    team.save(function(err){
+        if(err){
+            console.log(err);
+        }
+        // on success redirect me to the home page
+        else{
+            res.redirect('/teams')
+        }
+    });
+});
+
 app.get('/argI', (req, res)=>{
     res.render('news/argI');
 });

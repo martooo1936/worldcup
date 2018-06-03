@@ -1,5 +1,16 @@
 extend sharedprops/_master
-
+block styles
+    style.
+        h1{text-align:center;
+            padding-top:50px;}
+        label{color:white;
+            font-size:20px;}
+        form{
+            padding-top:50px;
+            padding-right:150px;
+            padding-left:150px;
+        }
+        
 
 block body
     h1
@@ -13,13 +24,8 @@ block body
             label Coach:
             input.form-control(name='coach', type='text' placeholder='enter the coach name')
         .form-group
-            .dropdown-menu(name='continent', aria-labelledby='dropdownMenuLink')
-                a.dropdown-item(href='#') Europe
-                a.dropdown-item(href='#') Africa
-                a.dropdown-item(href='#') South America
-                a.dropdown-item(href='#') North America
-                a.dropdown-item(href='#') Asia
-                a.dropdown-item(href='#') Australlia
-
+            label Continent:
+            input.form-control(name='continent', type='text' placeholder='choose continent')
+        
         
         button.btn.btn-primary(type='submit') Save Team
